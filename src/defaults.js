@@ -41,6 +41,7 @@ var defaults = {
 	
 	// locale
 	isRTL: false,
+	isSingleRow: false,
 	firstDay: 0,
 	monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 	monthNamesShort: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],

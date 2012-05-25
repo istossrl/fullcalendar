@@ -117,6 +117,7 @@ function DayEventRenderer() {
 	
 	function daySegHTML(segs) { // also sets seg.left and seg.outerWidth
 		var rtl = opt('isRTL');
+		var isSingleRow = opt('isSingleRow');
 		var i;
 		var segCnt=segs.length;
 		var seg;
@@ -147,8 +148,14 @@ function DayEventRenderer() {
 				if (seg.isEnd) {
 					classes.push('fc-corner-left');
 				}
-				leftCol = dayOfWeekCol(seg.end.getDay()-1);
-				rightCol = dayOfWeekCol(seg.start.getDay());
+				if (isSingleRow) {
+					leftCol = seg.start.getDate()-1;
+					rightCol = seg.end.getDate()-2;
+				}
+				else {
+					leftCol = dayOfWeekCol(seg.start.getDay());
+					rightCol = dayOfWeekCol(seg.end.getDay()-1);
+				}
 				left = seg.isEnd ? colContentLeft(leftCol) : minLeft;
 				right = seg.isStart ? colContentRight(rightCol) : maxLeft;
 			}else{
@@ -158,8 +165,14 @@ function DayEventRenderer() {
 				if (seg.isEnd) {
 					classes.push('fc-corner-right');
 				}
-				leftCol = dayOfWeekCol(seg.start.getDay());
-				rightCol = dayOfWeekCol(seg.end.getDay()-1);
+				if (isSingleRow) {
+					leftCol = seg.start.getDate()-1;
+					rightCol = seg.end.getDate()-2;
+				}
+				else {
+					leftCol = dayOfWeekCol(seg.start.getDay());
+					rightCol = dayOfWeekCol(seg.end.getDay()-1);
+				}
 				left = seg.isStart ? colContentLeft(leftCol) : minLeft;
 				right = seg.isEnd ? colContentRight(rightCol) : maxLeft;
 			}

@@ -50,6 +50,7 @@ js('basic/BasicWeekView.js');
 js('basic/BasicDayView.js');
 js('basic/BasicView.js');
 js('basic/BasicEventRenderer.js');
+js('basic/SingleRowMonthView.js');
 
 js('agenda/AgendaWeekView.js');
 js('agenda/AgendaDayView.js');
