@@ -113,8 +113,13 @@ function DayEventRenderer() {
 		}
 		return $(elements);
 	}
-	
-	
+
+
+	function daysInMonth(iMonth, iYear) {
+		return 32 - new Date(iYear, iMonth, 32).getDate();
+	}
+
+
 	function daySegHTML(segs) { // also sets seg.left and seg.outerWidth
 		var rtl = opt('isRTL');
 		var isSingleRow = opt('isSingleRow');
@@ -151,6 +156,9 @@ function DayEventRenderer() {
 				if (isSingleRow) {
 					leftCol = seg.start.getDate()-1;
 					rightCol = seg.end.getDate()-2;
+					if (seg.end.getMonth() > t.start.getMonth()) {
+						rightCol += daysInMonth(t.start.getMonth(), t.start.getYear());
+					}
 				}
 				else {
 					leftCol = dayOfWeekCol(seg.start.getDay());
@@ -168,6 +176,9 @@ function DayEventRenderer() {
 				if (isSingleRow) {
 					leftCol = seg.start.getDate()-1;
 					rightCol = seg.end.getDate()-2;
+					if (seg.end.getMonth() > t.start.getMonth()) {
+						rightCol += daysInMonth(t.start.getMonth(), t.start.getYear());
+					}
 				}
 				else {
 					leftCol = dayOfWeekCol(seg.start.getDay());
