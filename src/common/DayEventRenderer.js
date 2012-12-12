@@ -73,7 +73,7 @@ function DayEventRenderer() {
 			while (i<segCnt && (seg = segs[i]).row == rowI) {
 				// loop through segs in a row
 				top = arrayMax(colHeights.slice(seg.startCol, seg.endCol));
-				seg.top = top;
+				seg.top = (isFinite(top)) ? top : 0;
 				top += seg.outerHeight;
 				for (k=seg.startCol; k<seg.endCol; k++) {
 					colHeights[k] = top;
