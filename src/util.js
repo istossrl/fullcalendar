@@ -71,8 +71,9 @@ function sliceSegs(events, visEventEnds, start, end) {
 				msLength: segEnd - segStart
 			});
 		}
-	} 
-	return segs.sort(segCmp);
+	}
+	return segs;
+	//return segs.sort(segCmp);
 }
 
 
